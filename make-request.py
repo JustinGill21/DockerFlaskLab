@@ -15,8 +15,11 @@ def call_random_word_route():
 
 # route 3 -- string count
 def call_string_count():
-  ''' Execute string_count post '''
-  to_post = {'test_key':'test_value'}
+  '''
+  Execute string_count post -> the string to be tested is the value of to_post['key']
+  NOTE: do not send a request using the key: 'status', as 'status' is already reserved in this route's returned JSON file
+  '''
+  to_post = {'key':'12345678'}
   r = requests.post("http://localhost:5555/string-count", json=to_post) # make the request
   return r
 

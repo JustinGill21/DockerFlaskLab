@@ -17,6 +17,8 @@ app.config.from_object(__name__)
 App Requirements:
 1.  All routes must return JSON
 2.  All routes must have a docstring
+
+To make custom requests testing the Flask JSON API routes, run the make-request.py script
 '''
 
 
@@ -48,8 +50,10 @@ def string_count():
     response_object = {'status':'success'}
     if request.method == 'POST':
         x = request.get_json()
-        length = len(x)
-        response_object['length'] = str(length)
+        for key, item in x.items():
+            if key != 'status':
+                myString = item
+        response_object['length'] = str(len(myString))
     return jsonify(response_object)
 
 # Error handling code supplied in lab: https://classes.daveeargle.com/security-analytics-assignments/labs/lab-flask-docker-json-api.html
