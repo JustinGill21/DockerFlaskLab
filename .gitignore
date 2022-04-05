@@ -1,0 +1,7 @@
+# C extensions
+*.so
+
+# Others
+*.egg
+*.gem
+*.webassets-cache
