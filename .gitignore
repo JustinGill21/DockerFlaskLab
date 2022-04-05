@@ -5,3 +5,4 @@
 *.egg
 *.gem
 *.webassets-cache
+__pycache__
